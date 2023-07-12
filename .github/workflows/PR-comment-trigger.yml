@@ -32,7 +32,7 @@ jobs:
       
     - name: Set cleaned branch name as env variable
       run: |
-        branch = '${{ steps.comment-branch.outputs.head_ref }}'
+        branch='${{ steps.comment-branch.outputs.head_ref }}'
         echo "BRANCH='$($branch | tr '/' '-')'" >> $GITHUB_ENV
       
     - name: Echo cleaned branch name
