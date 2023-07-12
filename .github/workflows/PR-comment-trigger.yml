@@ -34,6 +34,6 @@ jobs:
           await github.rest.reactions.createForIssueComment({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            comment_id: github.event.comment.id,
+            comment_id: ${{ github.event.comment.id }},
             body: 'rocket'
           })
