@@ -31,7 +31,7 @@ jobs:
       run: echo "NOW=$(date +'%s')" >> $GITHUB_ENV
       
     - name: Set cleaned branch name as env variable
-      run: 'BRANCH=${{ steps.comment-branch.outputs.head_ref }}' | tr '/' '-' >> $GITHUB_ENV
+      run: echo 'BRANCH=${{ steps.comment-branch.outputs.head_ref }}' | tr '/' '-' >> $GITHUB_ENV
       
     - name: Echo cleaned branch name
       run: echo "${{ env.BRANCH }}"
