@@ -31,10 +31,10 @@ jobs:
       run: echo "NOW=$(date +'%s')" >> $GITHUB_ENV
       
     - name: Set cleaned branch name as env variable
-      run: echo "BRANCH='${{ steps.comment-branch.outputs.head_ref }}'" >> $GITHUB_ENV
+      run: echo "BRANCH='@('${{ steps.comment-branch.outputs.head_ref }}' | tr '/' '-')'" >> $GITHUB_ENV
       
     - name: Echo cleaned branch name
-      run: echo "${{ env.BRANCH }}" | tr '/' '-'
+      run: echo "${{ env.BRANCH }}"
 
     - name: React to comment
       uses: actions/github-script@v6
