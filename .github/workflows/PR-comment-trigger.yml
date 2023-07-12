@@ -26,6 +26,12 @@ jobs:
         
     - name: Echo README.md content
       run: echo "${{ steps.readme.outputs.content }}"
+      
+    - name: Set current epoch time as env variable
+      run: echo "NOW=$(date +'%s')" >> $GITHUB_ENV
+      
+    - name: Echo epoch time
+      run: echo "${{ env.NOW }}"
 
     - name: React to comment
       uses: actions/github-script@v6
